@@ -13,6 +13,7 @@ Organize your project folder structure as you see fit. Create any number of fold
 Here are some examples of these environment files:
 
 `.local/cf.env`
+
 ```shell
 export CF_USERNAME='johndoe'
 echo -n 'CF password: '
@@ -22,6 +23,7 @@ echo
 ```
 
 `.local/cicd.env`
+
 ```shell
 export NODE='cicd'
 export AWS_REGION='eu-west-1'
@@ -65,10 +67,10 @@ e
 
 ### Security
 
-As a safeguard, If any environment file has _group_ or _world_ _write-permission_, the file is rejected, showing this message:
+As a safeguard, If any environment file has _**g**roup_ or _**o**thers_ _**w**rite-permission_, the file is rejected, showing this message:
 
 ```
-Security risk (-rw-r---w-): .local/unsafe.env
+Security risk (-rw-----w-): .local/unsafe.env
 ```
 
 Use command like this to set minimal permission to environment files:
@@ -77,7 +79,7 @@ Use command like this to set minimal permission to environment files:
 chmod u=rw,go= .local/myfile.env
 ```
 
-**Attention: do not store sensible data in your environment files.**
+**Attention: never store sensible data in your environment files.**
 
 ## Final notes
 
