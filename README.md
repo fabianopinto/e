@@ -84,6 +84,8 @@ This way, one can easily clean any environment loaded using just:
 e
 ```
 
+Use the option `-d` or `--dump` to list all environment variables and values set, if any.
+
 ### Security
 
 As a safeguard, If an environment file has _**g**roup_ or _**o**thers_ _**w**rite-permission_, the file is rejected,
