@@ -63,7 +63,7 @@ the environment.
 ### Environment search
 
 This function can be used from any folder. It will traverse the folders up to the root folder, searching for
-environmental files with the pattern `.local/*.env`.
+environment files with the pattern `.local/*.env`.
 
 If an environment file cannot be found, this message will be shown:
 
