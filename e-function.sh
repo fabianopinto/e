@@ -5,14 +5,14 @@ function e {
     unset "$i"
   done
   __e=()
-  local old_pwd=$PWD
+  local old_pwd="$PWD"
   while [ "$1" != "" ]; do
     while [ "$PWD" != "/" ]; do
       if [ -f ".local/$1.env" ]; then
-        if [[ "$(stat -c %A ".local/$1.env")" =~ ^.....-..-.$ ]]; then
-          while IFS='' read -r line; do
+        if [[ "$(stat -c %A ".local/$1.env")" =~ ^...x.-..-.$ ]]; then
+          while IFS="" read -r line; do
             __e+=("$line")
-          done < <(sed -E 's/^(export ([^=]+))?.*/\2/' ".local/$1.env")
+          done < <(sed -E "s/^(export ([^=]+))?.*/\2/" ".local/$1.env")
           # shellcheck disable=SC1090
           source ".local/$1.env"
         else
@@ -26,6 +26,6 @@ function e {
       fi
     done
     shift
-    cd "$old_pwd" || true
+    cd "$old_pwd"
   done
 }
