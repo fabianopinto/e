@@ -37,14 +37,15 @@ Check https://github.com/fabianopinto/e"
     while [ "$1" != "" ]; do
       while [ "$PWD" != "/" ]; do
         if [ -f ".local/$1.env" ]; then
-          if [[ "$(stat -c %A ".local/$1.env")" =~ ^...x.-..-.$ ]]; then
+          local perms=$(ls -l ".local/$1.env" | cut -c1-10)
+          if [[ "$perms" =~ ^...x.-..-.$ ]]; then
             while IFS="" read -r line; do
               __e+=("$line")
             done < <(sed -E "s/^(export ([^=]+))?.*/\2/" ".local/$1.env")
             # shellcheck disable=SC1090
             source ".local/$1.env"
           else
-            echo "Security risk ($(stat -c %A ".local/$1.env")): .local/$1.env" >&2
+            echo "Security risk ($perms): .local/$1.env" >&2
           fi
           break
         fi
