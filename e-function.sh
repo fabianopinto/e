@@ -37,6 +37,7 @@ Check https://github.com/fabianopinto/e"
     while [ "$1" != "" ]; do
       while [ "$PWD" != "/" ]; do
         if [ -f ".local/$1.env" ]; then
+          # shellcheck disable=SC2012,2155
           local perms=$(ls -l ".local/$1.env" | cut -c1-10)
           if [[ "$perms" =~ ^.r.x.-..-.$ ]]; then
             while IFS="" read -r line; do
