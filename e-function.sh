@@ -38,7 +38,7 @@ Check https://github.com/fabianopinto/e"
       while [ "$PWD" != "/" ]; do
         if [ -f ".local/$1.env" ]; then
           local perms=$(ls -l ".local/$1.env" | cut -c1-10)
-          if [[ "$perms" =~ ^...x.-..-.$ ]]; then
+          if [[ "$perms" =~ ^.r.x.-..-.$ ]]; then
             while IFS="" read -r line; do
               __e+=("$line")
             done < <(sed -E "s/^(export ([^=]+))?.*/\2/" ".local/$1.env")
