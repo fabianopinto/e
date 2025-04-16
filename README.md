@@ -114,10 +114,10 @@ To traverse the folder structure and process environment files, the utilities `c
 These require the GNU versions, which may necessitate installing
 the [GNU core utilities](https://www.gnu.org/software/coreutils/).
 
-On macOS, you can use [Homebrew](https://brew.sh/) to install the GNU Core Utils:
+On macOS, you can use [Homebrew](https://brew.sh/) to install the GNU Core Utils, and the GNU implementation of `sed`:
 
 ```shell
-brew install coreutils
+brew install coreutils gnu-sed
 ```
 
 If you have installed the GNU core utilities using Homebrew, these commands will be available in your `PATH`.
