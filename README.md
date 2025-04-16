@@ -111,7 +111,7 @@ chmod u+rx,go-w .local/myfile.env
 
 ### Missing permissions
 
-If when loading an environment file you get a `Security risk` message, check the [Security](#Security)
+If you encounter a "Security risk" message while loading an environment file, please refer to the [Security](#Security)
 section above.
 
 ### Required utilities
