@@ -13,7 +13,7 @@ and within it, create environment files with the `.env` extension.
 
 Here are some examples of these environment files:
 
-`.local/cf.env`
+`~/.local/cf.env`
 
 ```shell
 export CF_USERNAME='johndoe'
@@ -23,7 +23,7 @@ export CF_PASSWORD
 echo
 ```
 
-`.local/cicd.env`
+`~/projects/someproject/.local/cicd.env`
 
 ```shell
 export NODE='cicd'
