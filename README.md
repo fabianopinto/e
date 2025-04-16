@@ -106,6 +106,25 @@ chmod u+rx,go-w .local/myfile.env
 >
 > **Never store sensible information in your environment files.**
 
+## Troubleshooting
+
+### Missing GNU Core Utils
+
+To traverse the folder structure and process environment files, the utilities `cut`, `sed`, and `sort` are utilized.
+These require the GNU versions, which may necessitate installing
+the [GNU core utilities](https://www.gnu.org/software/coreutils/).
+
+On macOS, you can use [Homebrew](https://brew.sh/) to install the GNU Core Utils:
+
+```shell
+brew install coreutils
+```
+
+If you have installed the GNU core utilities using Homebrew, these commands will be available in your `PATH`.
+
+If necessary, set the environment variables `CUT`, `SED`, and `SORT` to the paths of these utilities. Alternatively,
+adjust the script by modifying the paths where these variables are set.
+
 ## Final notes
 
 Feel free to use, adapt, improve, and share this code.
