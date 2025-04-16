@@ -43,13 +43,14 @@ environments files. Any environment file found traversing the folder structure u
 Following the example above, one can use:
 
 ```shell
+cd ~/projects/someproject
 e cf cicd
 ```
 
-This command will load all environment variables from `.local/cf.env` and `.local/cicd.env`. You can use any sequence of
+This command will load all environment variables from `~/.local/cf.env` and `~/projects/someproject/.local/cicd.env`. You can use any sequence of
 environment "keys," each processed in sequence.
 
-It is worth noting that the `.local/cf.env` example will prompt the user for some credentials, which will be stored in
+It is worth noting that the `~/.local/cf.env` example will prompt the user for some credentials, which will be stored in
 the environment.
 
 ### Options
