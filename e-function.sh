@@ -1,6 +1,9 @@
 #!/bin/bash
 
 function e {
+  local CUT=${CUT:=gcut}
+  local SED=${SED:=gsed}
+  local SORT=${SORT:=gsort}
   if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
     echo "Usage: e [OPTION] [ENVIRONMENT]...
 Handles multiple environment setups.
@@ -15,7 +18,7 @@ Check https://github.com/fabianopinto/e"
     local old_pwd="$PWD"
     while [ "$PWD" != "/" ]; do
       if [ -d ".local" ]; then
-        find .local -name "?*.env" -maxdepth 1 | sort | sed "s/^\.local\///; s/\.env$//"
+        find .local -name "?*.env" -maxdepth 1 | $SORT | $SED "s/^\.local\///; s/\.env$//"
       fi
       cd ..
     done
@@ -38,11 +41,11 @@ Check https://github.com/fabianopinto/e"
       while [ "$PWD" != "/" ]; do
         if [ -f ".local/$1.env" ]; then
           # shellcheck disable=SC2012,2155
-          local perms=$(ls -l ".local/$1.env" | cut -c1-10)
+          local perms=$(ls -l ".local/$1.env" | $CUT -c1-10)
           if [[ "$perms" =~ ^.r.x.-..-.$ ]]; then
             while IFS="" read -r line; do
               __e+=("$line")
-            done < <(sed -E "s/^(export ([^=]+))?.*/\2/" ".local/$1.env")
+            done < <($SED -E "s/^(export ([^=]+))?.*/\2/" ".local/$1.env")
             # shellcheck disable=SC1090
             source ".local/$1.env"
           else
