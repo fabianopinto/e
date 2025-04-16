@@ -109,7 +109,7 @@ chmod u+rx,go-w .local/myfile.env
 
 ## Troubleshooting
 
-### Missing permissions
+### Wrong permissions
 
 If you encounter a "Security risk" message while loading an environment file, please refer to the [Security](#Security)
 section above.
