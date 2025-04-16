@@ -109,11 +109,6 @@ chmod u+rx,go-w .local/myfile.env
 
 ## Troubleshooting
 
-### Wrong permissions
-
-If you encounter a "Security risk" message while loading an environment file, please refer to the [Security](#Security)
-section above.
-
 ### Required utilities
 
 To traverse the folder structure and process environment files, the utilities `cut`, `sed`, and `sort` are utilized.
@@ -125,6 +120,11 @@ On macOS, you can use [Homebrew](https://brew.sh/) to install the GNU utilities,
 ```shell
 brew install coreutils gnu-sed
 ```
+
+### Wrong permissions
+
+If you encounter a "Security risk" message while loading an environment file, please refer to the [Security](#Security)
+section above.
 
 ## Final notes
 
