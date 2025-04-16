@@ -48,7 +48,7 @@ e cf cicd
 ```
 
 The function will load all environment variables from `~/.local/cf.env` and `~/projects/someproject/.local/cicd.env`.
-You can use any sequence of environment keys, each processed in sequence.
+You can use any sequence of _environment keys_, each processed in sequence.
 
 It is worth noting that the `~/.local/cf.env` example will prompt the user for some credentials, which will be stored in
 the environment.
@@ -109,22 +109,22 @@ chmod u+rx,go-w .local/myfile.env
 
 ## Troubleshooting
 
-### Missing GNU Core Utils
+### Missing permissions
+
+If when loading an environment file you get a `Security risk` message, check the [Security](#Security)
+section above.
+
+### Required utilities
 
 To traverse the folder structure and process environment files, the utilities `cut`, `sed`, and `sort` are utilized.
 These require the GNU versions, which may necessitate installing
-the [GNU core utilities](https://www.gnu.org/software/coreutils/).
+the [GNU Core Utils](https://www.gnu.org/software/coreutils/).
 
-On macOS, you can use [Homebrew](https://brew.sh/) to install the GNU Core Utils, and the GNU implementation of `sed`:
+On macOS, you can use [Homebrew](https://brew.sh/) to install the GNU utilities, and the GNU implementation of `sed`:
 
- ```shell
- brew install coreutils gnu-sed
- ```
-
-If you have installed the GNU core utilities using Homebrew, these commands will be available in your `PATH`.
-
-If necessary, set the environment variables `CUT`, `SED`, and `SORT` to the paths of these utilities. Alternatively,
-adjust the script by modifying the paths where these variables are set.
+```shell
+brew install coreutils gnu-sed
+```
 
 ## Final notes
 
